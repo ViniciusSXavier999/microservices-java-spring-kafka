@@ -1,5 +1,6 @@
 package br.com.vx.microservices.kafka.venda.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,7 @@ public class VendaController {
 
     /* Sempre que eu for realizar essa venda eu quero postar no tópico que
     * essa venda foi realizada e ele atualizar o estoque do produto */
+    @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
 
     @PostMapping
